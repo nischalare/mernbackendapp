@@ -525,6 +525,21 @@ In the 'package.json' file of your project folder, add the below line of code
 
 Let us add these files changes 
 'git status'
+'git add .'
+'git commit -m "adding scripts"'
+
+go to heroku cli website, you can see 'registration-app-nischal'
+
+go to cmd, type 'git remote'
+you will see heroku
+
+in cmd, type 'git push -u origin master'
+
+in cmd, type 'git push heroku master'
+
+in vs code integrated terminal inside project directory, type 'npm run start'
+
+now the app is live at 'https://registration-app-nischal.herokuapp.com/'
 
 
 
