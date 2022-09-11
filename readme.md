@@ -387,3 +387,148 @@
 72. Open compass , connect db, keep it running dont close it
 73. please check all files for code as the last step
 74. Thank you
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEPLOYEMNT STEPS
+
+Goto 'https://www.heroku.com/' 
+
+Register and Login
+
+You will be in 'https://dashboard.heroku.com/' after login
+
+Click on 'Documentation' in the  footer
+
+Click on 'NodeJS'
+
+You will be redirected to 'https://devcenter.heroku.com/categories/nodejs-support'
+
+Click on 'Get started with Node.js'
+
+You will be redirectbed to 'https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up'
+
+Install HEROKU CLI
+
+make sure you install 'git' before installing heroku cli
+
+open git bash in project folder and type 'heroku -v' to check installation 
+
+In git bash, type the next command 'ls -al ~/.ssh'
+
+If you are getting a message like 'ls: cannot access '/c/Users/NischalAremanda/.ssh': No such file or directory' then we need to configure ssh
+
+Open a cmd, go to your project directory, type 'cd mernbackend'
+
+Inside your project 'templates' folder, create a new file '.gitignore'
+
+In git bash type the below command 
+' ssh-keygen -t rsa -b 4096 -C "nischal.aremanda1432@gmail.com"' and hit enter
+
+
+Type 'Enter' 3 times and your ssh is generrated
+
+Now again the command, 'ls -al ~/.ssh' in git bash 
+
+In git bash, type ' eval $(ssh-agent -s)' and hit enter
+
+You will get 'Agent pid 1484'
+
+In git bash, type 'ssh-add -k ~/.ssh/id_rsa' and hit enter
+
+You will get a message as shown below
+'Identity added: /c/Users/NischalAremanda/.ssh/id_rsa (nischal.aremanda1432@gmail.com)'
+
+Goto your github repository, go to settings and select 
+'SSH and GPG keys' option 
+
+select 'New SSH key' option
+
+give a title like 'mern user registration'
+
+in git bash, type 'cat ~/.ssh/id_rsa.pub'
+
+you will get an output like 
+'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDHC2+cimKTdSjcggo2D4M9Du96+HbSDZz8b4uijgF6oz+RWws9hBpMK3oMo2yVaLH9EtUh5hv0/z6/PZOpOUpz62vPqPomvakRtE678PBsBFp8M2EUaq0kTBx7Owk4zUlgkxAuLce+l4KcPAm76dCmktl+VLF84feeJpQUwl+KJavT3b1UIAlvRkiA26+AN2oRlZGeNJApKlATlGnzUECabXYDkeoal6GuQfc5QiQb+k+5Ghi8KSgcGzwIJRAvXg1ibjEPnCuA5r3JkUwvVwD6o6dFU+ZC2zDWivKg4h8xe1Vo/5XvHsVDWg6LbDvigQg7FmU5CzgPCS9ye1pMHyTCY/XPyAvv/Qs7QeDSzUWOOwkp5ljzDKdbm/gW+wezi3cPGUbwL7trpPsWGIsGJHd4xn9PuDxgOm4EIE42q7U0JY+XGELhLfYhm9aXogQCrk8qmPEiNowjraTGgoi9e6rBAH8jpMqswyqJypwu6pKm5bfkc0xVY7gFp0H45kbHL4t2rjgx/mFKMA8NOHLbEx9TeUHR+n4PTISFw4SdugUu20F02xPwV3AGJW65hd15PKc7jhyhQhFukveaHdBL+aU1RFoq+53VZgL1ryVvp/X8nVGe3RSb0W0/Dq/+c5EMmpYWKyai5q3IR77uYoQ9JPigq6ye45lNjzSJTpjRjk/PGw== nischal.aremanda1432@gmail.com'
+
+paste it in github profile in 'key'
+
+press 'ADD SSH KEY' and hit enter
+
+To check if its added, go to any cmd and type the below command 
+'ssh -T git@github.com' and type 'yes'
+
+You will get a message like below
+'Hi nischalare! You've successfully authenticated, but GitHub does not provide shell 
+access.'
+
+In the next step, open  a cmd in project directory and login to heroku by typing the below command 'heroku login'
+
+You will be redirected to heroku cli login page, please click on 'login'
+
+In cmd, you will get a message, 'Logged in as nischal.aremanda1432@gmail.com'
+
+In the same cmd, where you have logged in, type the below command
+'heroku keys:add'
+
+Type 'Y' and hit enter
+
+you will get a message like shown below
+'Uploading C:\Users\NischalAremanda\.ssh\id_rsa.pub SSH key... done'
+
+in the same cmd, type 'git init'
+
+next type 'git status'
+
+In the same cmd, next step is to type the below command
+'type nul > .gitignore'
+
+you can see a 'gitignore' file is created
+
+Goto that file and write the below code in it
+'node_modules'
+
+In the cmd, type 'git add .'
+
+next command is 'git commit -m "mern registration hosting"'
+
+next command is 'git branch', you will get 'master' as output
+
+next command is 'git remote', you will get 'origin' as output
+igf you are not getting it, create a new repository in your git hub account and create a new repository then you will see a command 'git push -u origin......' copy that command and paste in the cmd where heroku cli is logged in
+
+In the same cmd where your heroku cli is logged in, type 
+'heroku create registration-app-nischal'
+
+you get a link like - 
+'https://registration-app-nischal.herokuapp.com/' as output
+
+In the 'package.json' file of your project folder, add the below line of code
+[
+    "start": "node src/app.js" 
+    // add this line below '"dev": "nodemon src/app.js -e js,hbs",' in scripts
+]
+
+Let us add these files changes 
+'git status'
+
+
+
+
+
+
+
