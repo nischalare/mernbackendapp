@@ -31,6 +31,10 @@ app.get("/register", (req, res) => {
     res.render("register");
 });
 
+app.get("/login", (req, res) => {
+    res.render("login");
+});
+
 // let's create a new user in our database 
 app.post("/register", async (req, res) => {
     try {
